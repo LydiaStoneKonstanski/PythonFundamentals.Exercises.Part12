@@ -3,43 +3,27 @@ import enum
 
 
 class Parity(enum.Enum):
-    ODD = 0
-    EVEN = 1
+    # Integers based on modulus
+    ODD = 1
+    EVEN = 0
 
 
 def gen_list(start: int, stop: int, parity: Parity) -> List[int]:
-    """
-    Oh no some evil developer decided not to write docstrings. Maybe you can use the test cases to decipher
-    what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
-    updating this here docstring to something useful.
-
-    :param start:
-    :param stop:
-    :param parity:
-    :return:
-    """
-    pass
+    return [i for i in range(start, stop) if i % 2 == parity.value]
 
 
 def gen_dict(start: int, stop: int, strategy: Callable) -> Dict:
-    """
-    Oh no some evil developer decided not to write docstrings. Maybe you can use the test cases to decipher
-    what this method was supposed to do. Hey if you do, maybe you could do some good in this world by
-    updating this here docstring to something useful.
-
-
-    :param start:
-    :param stop:
-    :param strategy:
-    :return:
-    """
-    pass
+    return {i : strategy(i) for i in range(start, stop)}
 
 
 def gen_set(val_in: str) -> Set:
-    krisYouDirtyDog = set()
-    for letter in val_in:
-        if letter.islower():
-            krisYouDirtyDog.add(letter.upper())
+    # This is the longform logic
+    # krisYouDirtyDog = set()
+    # for letter in val_in:
+    #     if letter.islower():
+    #         krisYouDirtyDog.add(letter.upper())
+
+    # This is same logic using comprehension
+    krisYouDirtyDog = set([letter.upper() for letter in val_in if letter.islower()])
     return krisYouDirtyDog
 

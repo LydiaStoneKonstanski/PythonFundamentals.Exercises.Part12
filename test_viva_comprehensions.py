@@ -19,6 +19,7 @@ class VivaComprehensionsTest(unittest.TestCase):
                 actual = vc.gen_list(params[0], params[1], params[2])
                 self.assertEqual(expected, actual)
 
+
     def test_gen_dict(self):
         test_cases = [
             ({1: 1, 2: 4, 3: 9, 4: 16, 5: 25}, (1, 6, lambda x: x ** 2)),
